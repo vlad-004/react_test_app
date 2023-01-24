@@ -1,6 +1,7 @@
 import "./CostItem.css";
 import CostDate from "./CostDate";
 import Card from "../UI/Card";
+import React, { useState } from "react";
 
 /**
  * Использования этого компонента - пример композиции приложения,
@@ -11,14 +12,19 @@ import Card from "../UI/Card";
  * @returns
  */
 function CostItem(props) {
+
+    const [description, setDescription] = useState(props.description); // деструктуризация - todo: попросить Артема обьяснить и есть ли аналог этой записи
+
     function changeDescriptionHandler() {
-        alert('click to change desription');
+        setDescription('new description text'); // description = 'new text ..' & CostItem(props)
+        console.log(description);
     }
+
   return (
     <Card className="cost-item">
       <CostDate date={props.date} />
       <div className="cost-item__description">
-        <h2>{props.description}</h2>
+        <h2>{description}</h2>
         <div className="cost-item__price">$ {props.amount}</div>
           <button onClick={changeDescriptionHandler}>
               CHange desription
