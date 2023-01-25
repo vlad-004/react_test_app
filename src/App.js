@@ -1,4 +1,5 @@
 import Costs from "./components/Costs/Costs";
+import NewCost from "./components/NewCost/NewCost";
 
 // в старых версиях приложений реакт надо было в каждом jsx файле исмпортить реакт - сейчас не нужно
 import React from "react";
@@ -24,7 +25,7 @@ function App() {
 
   // В старых версиях реакт приложений можно увидеть такую конструкцию,
   //  которая аналог того что находится ниже
-  
+
   // return React.createElement(
   //   "div",
   //   {},
@@ -34,7 +35,7 @@ function App() {
 
   return (
     <div>
-      <h1>test project react</h1>
+      <NewCost/>
       <Costs costs={costs} />
     </div>
   );
