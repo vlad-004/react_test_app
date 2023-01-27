@@ -7,15 +7,15 @@ import React, {useState} from "react";
 const Costs = (props) => {
     const costs = props.costs;
 
-    const [filterYear, setFilterYear] = useState('');
+    const [filterYear, setFilterYear] = useState('2021');
     const filterYearChangeHandler = (changedYear) => {
         setFilterYear(changedYear);
     };
 
     return (
         <div>
-            <CostFilter filterYear={filterYear} onChangeYear={filterYearChangeHandler}/>
             <Card className="costs">
+                <CostFilter filterYear={filterYear} onChangeYear={filterYearChangeHandler}/>
                 <h2>Композиция расходов</h2>
                 <CostItem
                     date={costs[0].date}
