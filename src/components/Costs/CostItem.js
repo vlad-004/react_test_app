@@ -16,8 +16,9 @@ function CostItem(props) {
     const [description, setDescription] = useState(props.description); // деструктуризация - todo: попросить Артема обьяснить и есть ли аналог этой записи
 
     function changeDescriptionHandler() {
-        setDescription('new description text'); // description = 'new text ..' & CostItem(props)
-        console.log(description);
+        // description = 'new text ..' & CostItem(props)
+        setDescription('new description text');
+        // console.log('costItemDescription : '+description);
     }
 
   return (
