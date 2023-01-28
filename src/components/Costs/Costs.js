@@ -12,26 +12,34 @@ const Costs = (props) => {
         setFilterYear(changedYear);
     };
 
+    // function testMap () {
+    //    let test=  costs.map((cost) => (
+    //         <CostItem
+    //             date={cost.date}
+    //             description={cost.description}
+    //             amount={cost.amount}
+    //         />
+    //     ));
+    //     console.log(test);
+    // }
+    //
+    // testMap();
+
+    //TODO: не могу понять почему при этой конструкции получаю в консоли ошибку но при этом все работает.
+    //react-jsx-dev-runtime.development.js:87 Warning: Each child in a list should have a unique "key" prop.
+
     return (
         <div>
             <Card className="costs">
                 <CostFilter filterYear={filterYear} onChangeYear={filterYearChangeHandler}/>
                 <h2>Композиция расходов</h2>
-                <CostItem
-                    date={costs[0].date}
-                    description={costs[0].description}
-                    amount={costs[0].amount}
-                />
-                <CostItem
-                    date={costs[1].date}
-                    description={costs[1].description}
-                    amount={costs[1].amount}
-                />
-                <CostItem
-                    date={costs[2].date}
-                    description={costs[2].description}
-                    amount={costs[2].amount}
-                />
+                {costs.map((cost) => (
+                    <CostItem
+                        date={cost.date}
+                        description={cost.description}
+                        amount={cost.amount}
+                    />
+                ))}
             </Card>
         </div>
     );
