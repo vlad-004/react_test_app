@@ -4,12 +4,12 @@ import React, {useState} from "react";
 const CostForm = (props) => {
 
     //несколько состояний в 1 компоненте
-    const [inputName, setInputName] = useState('');
+    const [inputDescription, setInputDescription] = useState('');
     const [inputAmount, setInputAmount] = useState('');
     const [inputDate, setInputDate] = useState('');
 
-    const nameChangeHandler = (event) => {
-        setInputName(event.target.value);
+    const descriptionChangeHandler = (event) => {
+        setInputDescription(event.target.value);
     }
 
     const amountChangeHandler = (event) => {
@@ -22,13 +22,13 @@ const CostForm = (props) => {
     const submitHandler = (event) => {
         event.preventDefault();
         const costData = {
-            name: inputName,
+            description: inputDescription,
             amount: inputAmount,
             date: new Date(inputDate),
         };
 
         props.onSaveCostData(costData);
-        setInputName('');
+        setInputDescription('');
         setInputDate('');
         setInputAmount('');
     };
@@ -36,8 +36,8 @@ const CostForm = (props) => {
     return <form onSubmit={submitHandler}>
         <div className="new-cost__controls">
             <div className='new-cost__control'>
-                <label> название </label>
-                <input type="text" value={inputName} onChange={nameChangeHandler}/>
+                <label> Описание  </label>
+                <input type="text" value={inputDescription} onChange={descriptionChangeHandler}/>
             </div>
             <div className='new-cost__control'>
                 <label> сумма </label>
