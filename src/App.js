@@ -14,13 +14,13 @@ const INITIAL_COSTS = [
     },
     {
         id:'c2',
-        date: new Date(2021, 3, 1),
+        date: new Date(2022, 3, 1),
         description: "Ноутбук",
         amount: 1549.7,
     },
     {
         id:'c3',
-        date: new Date(2021, 2, 1),
+        date: new Date(2023, 2, 1),
         description: "Джинсы",
         amount: 49.99,
     },
@@ -45,10 +45,15 @@ function App() {
        });
     }
 
+    const filterCostsHandler = (year) => {
+        const filteredCosts = year ? INITIAL_COSTS.filter(cost => new Date(cost.date).getFullYear() == year) : INITIAL_COSTS;
+        setCosts(filteredCosts);
+    }
+
   return (
     <div>
       <NewCost onAddCost={addCostHandler}/>
-      <Costs costs={costs} />
+      <Costs onFilterYear={filterCostsHandler} costs={costs} />
     </div>
   );
 }

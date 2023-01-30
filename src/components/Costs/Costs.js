@@ -7,9 +7,10 @@ import React, {useState} from "react";
 const Costs = (props) => {
     const costs = props.costs;
 
-    const [filterYear, setFilterYear] = useState('2021');
-    const filterYearChangeHandler = (changedYear) => {
-        setFilterYear(changedYear);
+    const [filterYear, setFilterYear] = useState('');
+    const filterYearChangeHandler = (year) => {
+        setFilterYear(year);
+        props.onFilterYear(year);
     };
 
     // function testMap () {
