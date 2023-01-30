@@ -35,6 +35,7 @@ const Costs = (props) => {
                 <h2>Композиция расходов</h2>
                 {costs.map((cost) => (
                     <CostItem
+                        key={cost.id}
                         date={cost.date}
                         description={cost.description}
                         amount={cost.amount}
