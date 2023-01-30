@@ -10,7 +10,6 @@ const Costs = (props) => {
     const [filterYear, setFilterYear] = useState('');
     const filterYearChangeHandler = (year) => {
         setFilterYear(year);
-        props.onFilterYear(year);
     };
 
     // function testMap () {
@@ -34,14 +33,20 @@ const Costs = (props) => {
             <Card className="costs">
                 <CostFilter filterYear={filterYear} onChangeYear={filterYearChangeHandler}/>
                 <h2>Композиция расходов</h2>
-                {costs.map((cost) => (
-                    <CostItem
-                        key={cost.id}
-                        date={cost.date}
-                        description={cost.description}
-                        amount={cost.amount}
-                    />
-                ))}
+                {costs
+                    .filter(
+                        (cost) => filterYear
+                            ? new Date(cost.date).getFullYear() == filterYear
+                            : cost
+                    )
+                    .map((cost) => (
+                        <CostItem
+                            key={cost.id}
+                            date={cost.date}
+                            description={cost.description}
+                            amount={cost.amount}
+                        />
+                    ))}
             </Card>
         </div>
     );

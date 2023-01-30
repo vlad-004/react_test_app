@@ -45,15 +45,10 @@ function App() {
        });
     }
 
-    const filterCostsHandler = (year) => {
-        const filteredCosts = year ? INITIAL_COSTS.filter(cost => new Date(cost.date).getFullYear() == year) : INITIAL_COSTS;
-        setCosts(filteredCosts);
-    }
-
   return (
     <div>
       <NewCost onAddCost={addCostHandler}/>
-      <Costs onFilterYear={filterCostsHandler} costs={costs} />
+      <Costs costs={costs} />
     </div>
   );
 }
