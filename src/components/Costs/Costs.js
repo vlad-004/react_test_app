@@ -10,22 +10,6 @@ const Costs = (props) => {
         setFilterYear(year);
     };
 
-    // function testMap () {
-    //    let test=  costs.map((cost) => (
-    //         <CostItem
-    //             date={cost.date}
-    //             description={cost.description}
-    //             amount={cost.amount}
-    //         />
-    //     ));
-    //     console.log(test);
-    // }
-    //
-    // testMap();
-
-    //TODO: не могу понять почему при этой конструкции получаю в консоли ошибку но при этом все работает.
-    //react-jsx-dev-runtime.development.js:87 Warning: Each child in a list should have a unique "key" prop.
-
     /**
      * Если в фильтре не указана дата(год) - тогда выводим все расходы за все время.
      */

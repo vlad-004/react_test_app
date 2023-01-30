@@ -4,7 +4,6 @@ const CostsFilter = (props) => {
   const yearChangeHandler = (event) => {
     props.onChangeYear(event.target.value);
   };
-  // console.log('costfilter: ' + props.filterYear)
 
   return (
     <div className="costs-filter">
