@@ -10,22 +10,20 @@ const NewCost = (props) => {
             id: Math.random().toString(),
         }
         props.onAddCost(costData);
+        setIsFormVisible(false);
     }
 
-    const hideForm = () => {
-        const content = <button onClick={showForm} type='button'>Добавить новый расход</button>
-        setNewCostContent(content);
+    const [isFormVisible, setIsFormVisible] = useState(false);
+    const cancelCostHandler = () => {
+        setIsFormVisible(false);
     };
-    const showForm = () => {
-        let content = <CostForm onHiddenForm={hideForm} onSaveCostData={saveCostDataHandler}/>;
-        setNewCostContent(content)
+    const inputCostDataHandler = () => {
+        setIsFormVisible(true)
     };
-
-    let [newCostContent, setNewCostContent] = useState(<button onClick={showForm} type='button'>Добавить новый
-        расход</button>);
 
     return <div className='new-cost'>
-        {newCostContent}
+        {!isFormVisible && <button onClick={inputCostDataHandler} type='button'>Добавить новый расход</button>}
+        {isFormVisible && <CostForm onCancel={cancelCostHandler} onSaveCostData={saveCostDataHandler}/>}
     </div>
 }
 
