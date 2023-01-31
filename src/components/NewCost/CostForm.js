@@ -28,15 +28,20 @@ const CostForm = (props) => {
         };
 
         props.onSaveCostData(costData);
+        props.onHiddenForm();
         setInputDescription('');
         setInputDate('');
         setInputAmount('');
     };
 
+    const hiddenFormHandler = () => {
+        props.onHiddenForm();
+    };
+
     return <form onSubmit={submitHandler}>
         <div className="new-cost__controls">
             <div className='new-cost__control'>
-                <label> Описание  </label>
+                <label> Описание </label>
                 <input type="text" value={inputDescription} onChange={descriptionChangeHandler}/>
             </div>
             <div className='new-cost__control'>
@@ -50,6 +55,7 @@ const CostForm = (props) => {
 
             <div className='new-cost__actions'>
                 <button type='submit'>Добавить расход</button>
+                <button type='button' onClick={hiddenFormHandler}>Отмена</button>
             </div>
         </div>
     </form>
