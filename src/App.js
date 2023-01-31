@@ -8,9 +8,9 @@ import React, {useState}from "react";
 const INITIAL_COSTS = [
     {
         id:'c1',
-        date: new Date(2021, 4, 1),
-        description: "Холодильник",
-        amount: 949.99,
+        date: new Date(2021, 3, 1),
+        description: "Джинсы",
+        amount: 49.99,
     },
     {
         id:'c2',
@@ -22,7 +22,13 @@ const INITIAL_COSTS = [
         id:'c3',
         date: new Date(2023, 2, 1),
         description: "Джинсы",
-        amount: 49.99,
+        amount: 49,
+    },
+    {
+        id:'c4',
+        date: new Date(2021, 11, 1),
+        description: "MacBook",
+        amount: 1254.72,
     },
 ];
 
