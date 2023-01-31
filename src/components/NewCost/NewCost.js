@@ -21,9 +21,13 @@ const NewCost = (props) => {
         setIsFormVisible(true)
     };
 
+    let newCostContent = isFormVisible
+        ? <CostForm onCancel={cancelCostHandler} onSaveCostData={saveCostDataHandler}/>
+        : <button onClick={inputCostDataHandler} type='button'>Добавить новый расход</button>
+    ;
+
     return <div className='new-cost'>
-        {!isFormVisible && <button onClick={inputCostDataHandler} type='button'>Добавить новый расход</button>}
-        {isFormVisible && <CostForm onCancel={cancelCostHandler} onSaveCostData={saveCostDataHandler}/>}
+        {newCostContent}
     </div>
 }
 
